@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+</head>
+
+<body bgcolor="gray">
+<header>
+			   <a href="start2.html"><img src="includes\OpenBookFinal.png" alt="FAVEART for OnWords"> </a>
+		<div class="navbar">
+			<a href="AboutUs.html">About Us</a>
+			<a href="DigitalLibrary.html">Digital Library</a>
+			<a href="Contribute.html">Contribute</a>
+		</div>
+</header>
+	<h1>Test</h1>
+	<h2>Hello!</h2>
+	<p>Editing?</p>
+	<p>I love Fabliha</p>
+	<hr>
+	Video: <br>
+	<video id="video" autoplay></video>
+	<hr>
+	Canvas: <br>
+	<canvas id="canvas" width="400" height="400" text-align:="center"></canvas>
+	<hr>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script>
+		// store HTML elements as JS variables
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		var video = document.getElementById("video");
+
+		// route the webcam data to the video variable
+		navigator.mediaDevices.getUserMedia({
+			video: true,
+			audio: false
+		}).then(gotStream).catch(noStream);
+
+		function gotStream(stream) {
+			if ("srcObject" in video)
+				video.srcObject = stream;
+			else // deprecated
+				video.src = window.URL.createObjectURL(stream);
+		}
+
+		function noStream(error) {
+			console.log(error.name + " : " + error.message);
+		}
+
+		let x = 200;
+		let y = 0;
+		let t = 0;
+
+		function render() {
+			t += 1 / 30;
+			videoToCanvas();
+			// display text
+			context.font = "48px Arial";
+
+
+			let redValue = 255 * Math.abs(Math.sin(t));
+			let style = "rgba(" + redValue + ", 0, 0, 0.5)";
+			// context.fillStyle = "#ff0000";
+			context.fillStyle = style;
+			context.fillText("Hello, world!", x, y);
+			y += 0.5;
+			if (y > 400)
+				y = 0;
+			x = 200 + 50 * Math.sin(4 * t);
+			console.log("X" + x + "Y" + y);
+		}
+
+		function videoToCanvas() {
+			canvas.width = video.videoWidth;
+			canvas.height = video.videoHeight;
+			context.drawImage(video, 0, 0);
+		}
+
+		function videoToCanvas() {
+			canvas.width = video.videoWidth;
+			canvas.height = video.videoHeight;
+			context.drawImage(video, 0, 0);
+		}
+
+		setInterval(render, 33);
+
+	</script>
+</body>
+
+</html>
