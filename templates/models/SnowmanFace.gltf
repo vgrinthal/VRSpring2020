@@ -1,0 +1,327 @@
+ {
+    "asset": {
+        "copyright": "2019 (c) Adobe Inc.",
+        "generator": "Adobe Dimension - 588ee4ece1d9e7aad8162c6775b08a7e07e8bf96",
+        "version": "2.0"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 3719,
+            "type": "VEC3",
+            "max": [
+                0.09999999403953552,
+                0.19999998807907105,
+                0.10000000894069672
+            ],
+            "min": [
+                -0.1000000387430191,
+                0.0,
+                -0.1000000536441803
+            ]
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 3719,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 3719,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 21240,
+            "type": "SCALAR",
+            "max": [
+                3718.0
+            ],
+            "min": [
+                0.0
+            ]
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5126,
+            "count": 6667,
+            "type": "VEC3",
+            "max": [
+                0.0885268971323967,
+                0.19999998807907105,
+                0.0885268971323967
+            ],
+            "min": [
+                -0.08852686733007431,
+                0.0,
+                -0.08852685987949372
+            ]
+        },
+        {
+            "bufferView": 5,
+            "componentType": 5126,
+            "count": 6667,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 6,
+            "componentType": 5126,
+            "count": 6667,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 7,
+            "componentType": 5125,
+            "count": 38400,
+            "type": "SCALAR",
+            "max": [
+                6666.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 44628,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 44628,
+            "byteLength": 44628,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 89256,
+            "byteLength": 29752,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 119008,
+            "byteLength": 84960,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 203968,
+            "byteLength": 80004,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 283972,
+            "byteLength": 80004,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 363976,
+            "byteLength": 53336,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 417312,
+            "byteLength": 153600,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 570912,
+            "uri": "SnowmanFace_binary.bin"
+        }
+    ],
+    "cameras": [
+        {
+            "perspective": {
+                "znear": 0.000016041198250604795,
+                "yfov": 0.6024156808853149,
+                "zfar": 2.0,
+                "aspectRatio": 1.3333333730697632
+            },
+            "type": "perspective",
+            "name": "render_camera"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.503000020980835
+            },
+            "name": "Sphere Material"
+        },
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.5271152257919312,
+                    0.22322797775268556,
+                    0.019382361322641374,
+                    1.0
+                ],
+                "metallicFactor": 0.0,
+                "roughnessFactor": 0.503000020980835
+            },
+            "name": "Rounded Cone Material"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "sphere_N3D",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        },
+        {
+            "name": "sphere_N3D2",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 1,
+                        "POSITION": 0,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        },
+        {
+            "name": "MODEL_ROUNDED_CONE_PART_1_N3D",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5,
+                        "TEXCOORD_0": 6
+                    },
+                    "indices": 7,
+                    "material": 1
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "translation": [
+                0.7325122952461243,
+                0.4183521866798401,
+                0.702480673789978
+            ],
+            "rotation": [
+                -0.12059047073125839,
+                0.379409521818161,
+                0.04995020851492882,
+                0.9159756302833557
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "camera": 0,
+            "name": "render_camera_n3d"
+        },
+        {
+            "children": [
+                2,
+                3
+            ],
+            "translation": [
+                0.0,
+                0.2499149888753891,
+                0.0
+            ],
+            "name": "Group"
+        },
+        {
+            "translation": [
+                -0.24816085398197175,
+                0.0,
+                -0.0057624815963208679
+            ],
+            "mesh": 0,
+            "name": "Sphere"
+        },
+        {
+            "translation": [
+                0.031860657036304477,
+                0.0,
+                -0.28698891401290896
+            ],
+            "mesh": 1,
+            "name": "Sphere 2"
+        },
+        {
+            "translation": [
+                -0.01810787245631218,
+                0.1131194531917572,
+                -0.04633273184299469
+            ],
+            "rotation": [
+                0.4897218644618988,
+                0.7487818598747253,
+                0.44526129961013796,
+                -0.035222530364990237
+            ],
+            "scale": [
+                0.9999997615814209,
+                1.0000001192092896,
+                1.0000001192092896
+            ],
+            "mesh": 2,
+            "name": "Rounded Cone"
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1,
+                4
+            ],
+            "name": "scene"
+        }
+    ],
+    "scene": 0,
+    "extensions": {
+        "KHR_xmp": {
+            "packets": [
+                {
+                    "dc:date": "2020-01-31T19:11:47.186-05:00",
+                    "dc:format": "model/gltf+json",
+                    "dc:title": "SnowmanFace.dn",
+                    "xmp:CreatorTool": "AdobeDCXTest"
+                }
+            ]
+        }
+    },
+    "extensionsUsed": [
+        "KHR_xmp"
+    ]
+}

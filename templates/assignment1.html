@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+	 <script src="js/aframe.min.js"></script>
+	<script src="js/aframe-ar.js"></script>
+
+</head>
+<body>
+	<a-scene>
+		<a-assets>
+			<img id="SunImage" src="templates/includes/Sun.jpg">
+			<img id="EarthImage" src="templates/includes/Earth.jpg">
+			<img id = "SpaceSky" src = "templates/includes/SpaceSky.jpg"></img>
+			<img id="Mercury" src="templates/includes/Mercury.jpg">
+			<a-asset-item id = "ship-mtl" src = "models/SunGlyder/Sun_Glyder.mtl"></a-asset-item>
+			<a-asset-item id = "ship-obj" src = "models/SunGlyder/Sun_Glyder.obj"></a-asset-item>
+		</a-assets>
+		<a-camera position="6 6 0"></a-camera>
+		<a-sphere scale="4 4 4" position="0 0 0" material="src: #SunImage"></a-sphere>
+		<a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+			<a-sphere scale="2 2 2" position="10 10 0" material="src: #EarthImage"></a-sphere>
+			<a-sphere position="6 6 0" material="src: #Mercury"></a-sphere>
+		</a-entity>
+		<a-entity rotation="0 0 0" animation="property: rotation; to: 360 0 360; loop: true; dur: 10000">
+			<a-entity position = "8 8 0" scale = ".005 .005 .005" obj-model= "obj: #ship-obj; mtl: #ship-mtl;" ></a-entity>
+		<a-sky src="#SpaceSky"></a-sky>
+			</a-scene>
+	<script type="text/javascript">
+
+	AFRAME.registerComponent("animate", {
+	init: function()
+	{
+		//this.el = HTML TAG
+		this.el.setAttribute("material", "color", "red");
+		this.animationStyle = "bounce";
+	},
+
+	tick: function(time, deltaTime)
+	{
+		if (this.animationStyle == "bounce")
+		{
+			let x = -5;
+			let y = Math.sin(time / 1000);
+			let z = -5;
+			this.el.object3D.position.set(x, y, z);
+		}
+	}
+	
+});
+
+</script>	
+</body>
+</html>

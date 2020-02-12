@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"></script>
+<!-- support 3D text -->
+<script src="js/aframe-text-geometry-component.min.js"></script>
+
+</head>
+
+<body style="background: #888888; margin: 0px; overflow: hidden;">
+
+
+<script>
+
+AFRAME.registerComponent("registerevents", {
+    init: function () 
+    {
+
+        this.firstDetection = false;
+        this.markerVisible = false;
+        this.marker = this.el;
+        this.root = document.querySelector("#root");
+        this.word = document.querySelector("#words");
+        
+        this.root.object3D.visible = false;
+
+        let self = this;
+
+        this.marker.addEventListener('markerFound', function() {
+            self.markerVisible = true;
+        });
+
+        this.marker.addEventListener('markerLost', function() {
+            self.markerVisible = false;
+        });
+        
+        this.p = new THREE.Vector3();
+        this.q = new THREE.Quaternion();
+        this.s = new THREE.Vector3();   
+    },
+    
+    tick: function (time, deltaTime) 
+    {
+         // check if marker is found for the first time;
+         //  if so, make object visible and align position/rotation.
+         if ( this.markerVisible && !this.firstDetection )
+         {
+            this.firstDetection = true;
+            this.root.object3D.visible = true;
+            let words = document.querySelector("#words");
+            words.setAttribute("animation__rise", "autoplay", "true");
+            words.setAttribute("animation__fade", "autoplay", "true");
+        }
+
+        // if marker is visible, align the entity to the marker
+        if (this.markerVisible)
+        {
+            // sync position of marker and 3D objects
+            let lerpAmount = 0.5;
+            this.marker.object3D.getWorldPosition(this.p);
+			this.marker.object3D.getWorldQuaternion(this.q);
+			this.marker.object3D.getWorldScale(this.s);
+			this.root.object3D.position.lerp(this.p, lerpAmount);
+            this.root.object3D.quaternion.slerp(this.q, lerpAmount);
+			this.root.object3D.scale.lerp(this.s, lerpAmount);
+            
+            this.word.setAttribute("color", "green");
+        } 
+        else
+        {
+            // marker lost
+            this.word.setAttribute("color", "red");            
+        }
+    }
+});
+
+</script>
+    <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+           <a-assets>
+    <img id="Bitmoji" src="includes/Bitmoji.png"></a-assets>
+    <a-marker type = "pattern" url = "data/PantherMarker.patt" id = "PantherMarker">
+         <a-sphere scale=".75 .75 .75" position="0 0 0" rotation= "0 -110 90" material="src: #Bitmoji" animation="property: rotation; to: -360 -110 90; loop: true; dur: 10000"></a-sphere>
+        </a-marker>
+
+     <a-entity camera></a-entity>
+    </a-scene>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype HTML>
+<html>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"></script>
+
+<!-- support 3D text -->
+<script src="js/aframe-text-geometry-component.min.js"></script>
+
+<body style="margin: 0px; overflow: hidden;">
+
+<script type="text/javascript">
+
+AFRAME.registerComponent("animate-text", {
+	init: function()
+	{
+		//this.el = HTML TAG
+		this.el.setAttribute("material", "color", "red");
+		this.animationStyle = "bounce";
+	},
+
+	tick: function(time, deltaTime)
+	{
+		if (this.animationStyle == "bounce")
+		{
+			let x = -5;
+			let y = Math.sin(time / 1000);
+			let z = -5;
+			this.el.object3D.position.set(x, y, z);
+		}
+	}
+	
+});
+
+</script>	
+
+<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+
+	<a-assets>
+		<a-asset-item id="exoFont" src="fonts/Anton_Regular.json"></a-asset-item>
+		<img id="pixels" src="images/pixels.png" />
+	</a-assets>
+
+	<!-- 2D text -->
+\
+	<a-entity text-geometry="value: Hello, world!; font: #exoFont;"
+	material="color: yellow; repeat: 0.5 0.5;" 
+	rotation="0 0 0" position="0 0 0" animate-text>
+	
+	</a-entity>
+
+    <a-entity camera></a-entity>
+    
+</a-scene>
+</body>
+</html>
