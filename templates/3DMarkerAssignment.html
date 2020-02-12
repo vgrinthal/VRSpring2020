@@ -23,7 +23,6 @@ AFRAME.registerComponent("registerevents", {
         this.firstDetection = false;
         this.markerVisible = false;
         this.marker = this.el;
-        this.link = document.querySelector("#words");
         
         this.link.object3D.visible = false;
 
@@ -56,11 +55,6 @@ AFRAME.registerComponent("registerevents", {
 </a-assets>
     <a-marker type = "pattern" url = "data/PantherMarker.patt" id = "PantherMarker">
          <a-sphere scale=".75 .75 .75" position="0 0 0" rotation= "0 -110 90" material="src: #Bitmoji" animation="property: rotation; to: -360 -110 90; loop: true; dur: 10000"></a-sphere>
-         <a-entity id="words" 
-            text-geometry="value: Hover to link to my portfolio!;"
-            scale=".5 .5 .5;"
-            material="color: yellow;"rotation="-90 90 -90;" position=" -3 -1 -2">
-        </a-entity>
         </a-marker>
 
      <a-entity camera></a-entity>
