@@ -56,7 +56,13 @@ Version 4.
       // show the scale bar on the lower left corner
       L.control.scale().addTo(map);
 
+      function onClick()
+      {
+          console.log("Working");
+      };
+
       var us = L.marker({lon: -72, lat: 42})
+                     .on("click", onClick)
                      .bindPopup( "This is a spot on Adelphi's Garden City campus." )
                      .addTo( map );
 
